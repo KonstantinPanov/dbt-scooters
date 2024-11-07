@@ -1,15 +1,42 @@
-Welcome to your new dbt project!
+# dbt_scooters
 
-### Using the starter project
+## Описание проекта
 
-Try running the following commands:
-- dbt run
-- dbt test
+Проект `dbt_scooters` предназначен для построения аналитической модели данных для компании, предоставляющей услуги аренды электросамокатов. Цель проекта — предоставить бизнесу данные для анализа эффективности использования самокатов, динамики спроса и других ключевых метрик.
 
+## Установка и настройка
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+1. Клонируйте репозиторий:
+   ```bash
+   git clone <URL_вашего_репозитория>
+Перейдите в директорию проекта:
+cd dbt_scooters
+Установите dbt (если ещё не установлен):
+pip install dbt
+Настройте файл profiles.yml для подключения к базе данных.
+Базовые команды dbt
+Инициализация нового проекта:
+
+dbt init <имя_проекта>
+Запуск моделей:
+
+dbt run
+Запуск тестов:
+
+dbt test
+Генерация документации:
+
+dbt docs generate
+Запуск веб-сервера для документации:
+
+dbt docs serve
+Проверка правильности конфигурации:
+
+dbt debug
+Структура проекта
+models/: содержит все модели dbt.
+seeds/: CSV-файлы, которые загружаются в схему базы данных.
+analyses/: SQL-запросы для анализа данных.
+tests/: пользовательские тесты для проверки данных.
+Контакты
+Для вопросов и предложений обращайтесь по адресу [ваш_email@example.com].

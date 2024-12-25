@@ -16,23 +16,15 @@ models:
     description: "Trips prepared for analysis"
     config:
       materialized: "view"
+  - name: "trips_stat"
+    description: "Overall trips statistics"  
+  - name: "trips_stat_daily"
+    description: "Overall trips statistics per day"
+    config:
+      indexes:
+        - columns: ["date"]
+  - name: "trips_age_daily"
+    description: "Daily trips statistics by user age"
 
-
-{# models:
-  - name: my_first_dbt_model
-    description: "A starter dbt model"
-    columns:
-      - name: id
-        description: "The primary key for this table"
-        data_tests:
-          - unique
-          - not_null
-
-  - name: my_second_dbt_model
-    description: "A starter dbt model"
-    columns:
-      - name: id
-        description: "The primary key for this table"
-        data_tests:
-          - unique
-          - not_null #}
+  - name: "trips_age_daily_stat"
+    description: "Aggregation of daily trips statistics by user age"    

@@ -52,3 +52,22 @@ models:
       unique_key: [ "date" ]
       on_schema_change: "append_new_columns"
       full_refresh: false
+  - name: "trips_concurrency"
+    description: "Number of simultaneous rides in time"
+    config:
+      materialized: "incremental"
+  - name: "companies"
+    description: "Scooter satistics by company"
+  - name: "events_full"
+    description: "User events enriched with meaningful types"
+    config:
+      materialized: "view"
+  - name: "events_stat"
+    description: "Overall user events statistics"
+seeds:
+  - name: "scooters"
+    description: "Scooter models info and statistics"
+    config:
+      delimiter: ","
+  - name: "event_types"
+    description: "Meaningful types of mobile app events"

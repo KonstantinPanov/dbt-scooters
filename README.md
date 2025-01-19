@@ -52,3 +52,7 @@ create extension postgis schema public;
 ```
 
 ...
+
+## Полезные макросы
+
+- `dbt run-operation create_role --args "name: finance"` - создание роли в базе (на примере роли "finance"

@@ -9,13 +9,13 @@ left join
     {{ source("scooters_raw", "users") }} as u
     on t.user_id = u.id
 {% if is_incremental() %}
-where
-    t.id > (select max(id) from {{ this }})
-order by
-    t.id
-limit
-    75000
+    where
+        t.id > (select max(id) from {{ this }})
+    order by
+        t.id
+    limit
+        75000
 {% else %}
-where
-    t.id <= 75000
+    where
+        t.id <= 75000
 {% endif %}

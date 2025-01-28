@@ -1,28 +1,30 @@
-
-name: 'dbt_scooters'
-version: '1.0.0'
-
-profile: 'dbt_scooters'
-
+name: "dbt_scooters"
+version: "1.0.0"
+profile: "dbt_scooters"
 model-paths: ["models"]
 analysis-paths: ["analyses"]
 test-paths: ["tests"]
 seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
-
-clean-targets:         # directories to be removed by `dbt clean`
+clean-targets:
   - "target"
   - "dbt_packages"
-
 on-run-end:
     - "grant usage on schema dbt_finance to finance;"
-
 models:
   dbt_scooters:
     +materialized: "table"
     +on_schema_change: "append_new_columns"
+    +persist_docs:
+      relation: true
+      columns: true
     finance:
       +schema: "finance"
       +grants:
         select: [ "finance" ]
+seeds:
+  dbt_scooters:
+    +persist_docs:
+      relation: true
+      columns: true
